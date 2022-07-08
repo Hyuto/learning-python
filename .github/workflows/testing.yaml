@@ -34,4 +34,4 @@ jobs:
       - name: Typecheck with mypy
         run: poetry run mypy --no-incremental
       - name: Test with pytest
-        run: pytest --cov=src/ -v --cov-report=xml:./coverage.xml
+        run: poetry run pytest --cov=src/ -v --cov-report=xml:./coverage.xml

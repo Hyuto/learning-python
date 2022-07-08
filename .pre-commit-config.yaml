@@ -25,4 +25,18 @@ repos:
         language: system
         entry: isort --check-only
         types: [python]
-      
+      - id: mypy
+        name: typechecking using mypy
+        language: system
+        entry: mypy --no-incremental
+        pass_filenames: false
+      - id: pytest
+        name: unit testing
+        language: system
+        entry: pytest --cov=src/ -v
+        pass_filenames: false
+      - id: locking
+        name: locking poetry dependencies
+        language: system
+        entry: bash -c "poetry lock && git add poetry.lock"
+        pass_filenames: false
