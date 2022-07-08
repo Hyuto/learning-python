@@ -24,5 +24,11 @@ files = ["src"]
 show_error_codes = true
 strict = true
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
+[tool.black]
+line-length = 100
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  | __pycache__
+)/
+'''
