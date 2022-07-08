@@ -1,0 +1,37 @@
+name: Unit Testing
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
+        poetry-version: ["1.1.0", "1.1.13"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Set up Poetry ${{ matrix.poetry-version }}
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dependencies
+        run: poetry install
+      - name: Format check with black
+        run: poetry run black --check .
+      - name: Format imports with isort
+        run: poetry run isort --check-only .
+      - name: Typecheck with mypy
+        run: poetry run mypy --no-incremental
+      - name: Test with pytest
+        run: pytest --cov=src/ -v --cov-report=xml:./coverage.xml
