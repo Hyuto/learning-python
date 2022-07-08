@@ -1,11 +1,13 @@
-test:
-	TERM=unknown pytest --cov-report term-missing --cov=src/ tests/ -vv
-
-format-check:
-	black --check .
-
 format:
 	black .
+	isort .
+
+format-check:
+	black . --check 
+	isort . --check-only
 
 typecheck:
-	mypy -p src --no-incremental
+	mypy --no-incremental
+
+test:
+	pytest --cov=src/ -v --cov-report=xml:./coverage.xml
