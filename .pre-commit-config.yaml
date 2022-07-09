@@ -18,12 +18,12 @@ repos:
       - id: black
         name: black formatting
         language: system
-        entry: black --check
+        entry: black --check .
         types: [python]
       - id: isort
         name: isort imports
         language: system
-        entry: isort --check-only
+        entry: isort --check-only .
         types: [python]
       - id: mypy
         name: typechecking using mypy

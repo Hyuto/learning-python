@@ -10,4 +10,4 @@ typecheck:
 	mypy --no-incremental
 
 test:
-	pytest --cov=src/ -v --cov-report=xml:./coverage.xml
+	pytest --cov=src/ -v
