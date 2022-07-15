@@ -1,4 +1,4 @@
-name: Unit Testing
+name: Test
 
 on:
   push:
@@ -7,33 +7,25 @@ on:
   pull_request:
 
 jobs:
-  test:
+  build:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
-        poetry-version: ["1.1.0", "1.1.13"]
-    runs-on: ubuntu-latest
     env:
       PYTHON: ${{ matrix.python-version }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Set up Poetry ${{ matrix.poetry-version }}
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
+          cache: 'poetry'
       - name: Install dependencies
         run: poetry install
-      - name: Format check with black
-        run: poetry run black --check .
-      - name: Format imports with isort
-        run: poetry run isort --check-only .
-      - name: Typecheck with mypy
-        run: poetry run mypy --no-incremental
       - name: Test with pytest
         run: poetry run pytest --cov=src/ -v --cov-report=xml:./coverage.xml
       - name: Upload code coverage
