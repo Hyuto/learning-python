@@ -1,13 +1,13 @@
 format:
-	black .
-	isort .
+	poetry run black .
+	poetry run isort .
 
 format-check:
-	black . --check 
-	isort . --check-only
+	poetry run black . --check 
+	poetry run isort . --check-only
 
 typecheck:
-	mypy --no-incremental
+	poetry run mypy src/ --no-incremental
 
 test:
-	pytest --cov=src/ -v
+	poetry run pytest --cov=src/ -v

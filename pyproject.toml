@@ -1,27 +1,27 @@
 [tool.poetry]
-name = "learning-python"
-version = "0.1.0"
-description = "for learning purpose"
-authors = ["Wahyu Setianto <wahyusetianto19@gmail.com>"]
+name = 'learning-python'
+version = '0.1.0'
+description = 'for learning purpose'
+authors = ['Wahyu Setianto <wahyusetianto19@gmail.com>']
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = '^3.7'
 
 [tool.poetry.dev-dependencies]
-black = "^22.6.0"
-isort = "^5.10.1"
-mypy = "^0.961"
-pre-commit = "^2.19.0"
-pytest = "^7.1.2"
-coverage = "^6.4.1"
-pytest-cov = "^3.0.0"
+black = '^22.6.0'
+isort = '^5.10.1'
+mypy = '^0.961'
+pre-commit = '^2.19.0'
+pytest = '^7.1.2'
+coverage = '^6.4.1'
+pytest-cov = '^3.0.0'
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ['poetry-core>=1.0.0']
+build-backend = 'poetry.core.masonry.api'
 
 [tool.mypy]
-files = ["src/**/*.py"]
+files = ['src']
 show_error_codes = true
 strict = true
 
