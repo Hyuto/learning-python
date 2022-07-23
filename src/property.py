@@ -4,14 +4,30 @@ from typing import Optional
 class Human:
     """Human class
 
-    Args:
+    Attributes:
         heigh (float): height in meter
+
+    Example:
+        Getting high in different scalar
+
+        >>> human = Human(1.75) # in meters
+        >>> human.get_height("inch")
+        68.897675
     """
 
     def __init__(self, height: float) -> None:
         self.height = height
 
     def get_height(self, unit: Optional[str] = None) -> float:
+        """Getting heigh of human
+
+        Args:
+            unit (Optional[str]): dessirable scalar. Defaults to None.
+                if None then it will return the main heigh in meters
+
+        Returns:
+            float: height with respectable scalar
+        """
         mapper = {"inch": 39.3701, "foot": 3.28084}
         if unit:
             if unit in mapper.keys():
