@@ -1,0 +1,4 @@
+site_name: Learning Python
+theme: lux
+nav:
+  - Home: index.md
