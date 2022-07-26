@@ -1,3 +1,7 @@
+clean:
+	find . | grep -E '(__pycache__|\.pyc|\.lprof|\.pytest_cache|\.ipynb_checkpoints|\.mypy_cache)' | \
+	xargs rm -rf
+
 format:
 	poetry run black .
 	poetry run isort .

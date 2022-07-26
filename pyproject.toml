@@ -4,6 +4,10 @@ version = '0.1.0'
 description = 'for learning purpose'
 authors = ['Wahyu Setianto <wahyusetianto19@gmail.com>']
 
+[tool.poetry.urls]
+repository = 'https://github.com/Hyuto/learning-python'
+"Bug Tracker" = 'https://github.com/Hyuto/learning-python/issues'
+
 [tool.poetry.dependencies]
 python = '^3.7'
 
@@ -39,5 +43,6 @@ extend-exclude = '''
   | _build
   | build
   | dist
+  | docs
 )/
 '''
