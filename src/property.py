@@ -7,7 +7,7 @@ class Human:
     Attributes:
         heigh (float): height in meter
 
-    Example:
+    Examples:
         Getting high in different scalar
 
         >>> human = Human(1.75) # in meters

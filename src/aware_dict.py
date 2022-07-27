@@ -4,7 +4,7 @@ from typing import Any, Dict, Optional
 class AwareDict(Dict[Any, Any]):
     """Dictionary with awareness of change
 
-    Example:
+    Examples:
         Logging change
 
         >>> dict_ = AwareDict({"a": 2})
