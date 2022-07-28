@@ -1,4 +1,26 @@
 site_name: Learning Python
-theme: lux
+site_author: Wahyu Setianto
+site_description: For learning python 
+repo_url: https://github.com/Hyuto/learning-python
+theme: 
+  name: mkdocs
 nav:
   - Home: index.md
+  - Docs: reference/
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - utils/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+extra_javascript:
+  - js/responsive-table.js
+watch:
+  - src
