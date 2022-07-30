@@ -1,3 +1,7 @@
+"""## Property
+
+Property type in class"""
+
 from typing import Optional
 
 
@@ -22,7 +26,7 @@ class Human:
         """Getting heigh of human
 
         Args:
-            unit (Optional[str]): dessirable scalar. Defaults to None.
+            unit (Optional[str]): dessirable scalar,
                 if None then it will return the main heigh in meters
 
         Returns:

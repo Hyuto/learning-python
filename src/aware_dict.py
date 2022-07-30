@@ -1,3 +1,7 @@
+"""## Aware Dictionary
+
+Dictionary that aware of changes"""
+
 from typing import Any, Dict, Optional
 
 
@@ -9,6 +13,7 @@ class AwareDict(Dict[Any, Any]):
 
         >>> dict_ = AwareDict({"a": 2})
         >>> dict_["b"] = 3
+        >>> dict_
         {'a': 2, 'b': 3}
     """
 
