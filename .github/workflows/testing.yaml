@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
   pull_request:
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
 
 jobs:
   build:

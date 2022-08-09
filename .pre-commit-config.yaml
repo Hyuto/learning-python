@@ -29,10 +29,5 @@ repos:
       - id: mypy
         name: typechecking using mypy
         language: system
-        entry: mypy --no-incremental
-        pass_filenames: false
-      - id: pytest
-        name: unit testing
-        language: system
-        entry: pytest --cov=src/ -v
+        entry: mypy src --no-incremental
         pass_filenames: false
