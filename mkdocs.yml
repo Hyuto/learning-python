@@ -13,11 +13,14 @@ plugins:
       scripts:
         - utils/gen_ref_pages.py
   - mkdocstrings:
-      default_handler: python
       handlers:
         python:
+          import:
+            - https://docs.python.org/3/objects.inv
           options:
             show_source: false
+            merge_init_into_class: yes
+            members_order: source
 extra_javascript:
   - js/responsive-table.js
 watch:
